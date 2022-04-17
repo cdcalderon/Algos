@@ -8,6 +8,10 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
+    return palindromeSolution1(str)
+}
+
+function palindromeSolution1(str) {
     const reversed = reverse(str)
 
     return str == reversed
