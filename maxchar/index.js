@@ -20,7 +20,7 @@ function maxChar(str) {
 
     for (let char in charMap) {
         if (charMap[char] > maxOccurence) {
-            maxOccurence = charMap[key]
+            maxOccurence = charMap[char]
             maxChar = char
         }
     }
