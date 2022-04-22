@@ -9,6 +9,10 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 function chunk(array, size) {
+    return chunkTwo(array, size)
+}
+
+function chunkOne(array, size) {
     const chunked = [[]]
     for (let item of array) {
         let last = chunked[chunked.length - 1]
@@ -21,6 +25,17 @@ function chunk(array, size) {
     }
 
     console.log('chunked ', chunked)
+    return chunked
+}
+
+function chunkTwo(array, size) {
+    let chunked = []
+    let index = 0
+    while (index < array.length) {
+        chunked.push(array.slice(index, index + size))
+        index += size
+    }
+
     return chunked
 }
 
