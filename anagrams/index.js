@@ -9,9 +9,33 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-    return cleanString(stringA) === cleanString(stringB)
+    let stringACharMap = buildCharMap(stringA)
+    let stringBCharMap = buildCharMap(stringB)
+
+    if (Object.keys(stringACharMap).length !== Object.keys(stringBCharMap).length) {
+        return false
+    }
+
+    for (let char in stringACharMap) {
+        if (stringACharMap[char] !== stringBCharMap[char]) {
+            return false
+        }
+    }
+
+    return true
 }
 
-function cleanString(str) {}
+function buildCharMap(str) {
+    let charMap = {}
+    for (let char of str.replace(/[^\w]/g).toLowerCase()) {
+        if (charMap[char]) {
+            charMap[char]++
+        } else {
+            charMap[char] = 1
+        }
+    }
+
+    return charMap
+}
 
 module.exports = anagrams
