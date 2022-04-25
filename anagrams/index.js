@@ -9,6 +9,10 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
+    return anagramsSolutionTwo(stringA, stringB)
+}
+
+function anagramsSolutionOne(stringA, stringB) {
     let stringACharMap = buildCharMap(stringA)
     let stringBCharMap = buildCharMap(stringB)
 
@@ -23,6 +27,15 @@ function anagrams(stringA, stringB) {
     }
 
     return true
+}
+
+function anagramsSolutionTwo(stringA, stringB) {
+    return cleanAndFormatString(stringA) === cleanAndFormatString(stringB)
+}
+
+// utiliti
+function cleanAndFormatString(str) {
+    return str.replace(/[^\w]/g).toLowerCase().split('').sort().join('')
 }
 
 function buildCharMap(str) {
