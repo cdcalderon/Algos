@@ -8,7 +8,7 @@
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 function capitalize(str) {
-    return capitalizeSolutionOne(str)
+    return capitalizeSolutionTwo(str)
 }
 
 function capitalizeSolutionOne(str) {
@@ -18,6 +18,18 @@ function capitalizeSolutionOne(str) {
         .join(' ')
 }
 
-function capitalizeSolutionTwo(str) {}
+function capitalizeSolutionTwo(str) {
+    let lArray = [str[0].toUpperCase()]
+
+    for (let i = 1; i < str.length; i++) {
+        if (str[i - 1] === ' ') {
+            lArray.push(str[i].toUpperCase())
+        } else {
+            lArray.push(str[i])
+        }
+    }
+
+    return lArray.join('')
+}
 
 module.exports = capitalize
