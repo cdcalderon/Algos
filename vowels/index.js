@@ -8,8 +8,16 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-    const vowels = ['a', 'e', 'i', 'o', 'u']
+    return vowelsSolutionTwo(str)
+}
+
+function vowelsSolutionOne(str) {
     return str.split('').filter((v) => vowels.includes(v)).length
+}
+
+function vowelsSolutionTwo(str) {
+    const matches = str.match(/[aeiou]/gi)
+    return matches ? matches.length : 0
 }
 
 module.exports = vowels
