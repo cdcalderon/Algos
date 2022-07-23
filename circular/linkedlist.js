@@ -74,6 +74,53 @@ class LinkedList {
         previous.next = new Node(data, node)
     }
 
+    removeFirst() {
+        if (!this.head) {
+            return
+        }
+
+        this.head = this.head.next
+    }
+
+    removeLast() {
+        if (!this.head) {
+            return
+        }
+
+        if (!this.head.next) {
+            this.head = null
+            return
+        }
+
+        let previous = this.head
+        let node = this.head.next
+        while (node.next) {
+            previous = node
+            node = node.next
+        }
+        previous.next = null
+    }
+
+    removeAt(index) {
+        if (!this.head) {
+            return
+        }
+
+        let counter = 0
+        let node = this.head
+        while (node) {
+            if (counter === index - 1) {
+                if (node.next) {
+                    return (node.next = node.next.next)
+                } else {
+                    return (node.next = null)
+                }
+            }
+            node = node.next
+            counter++
+        }
+    }
+
     getFirst() {
         return this.head
     }
@@ -104,6 +151,26 @@ class LinkedList {
         } else {
             this.head = new Node(data)
             return this.head
+        }
+    }
+
+    forEach(fn) {
+        if (!this.head) {
+            return null
+        }
+
+        let node = this.head
+        while (node) {
+            fn(node)
+            node = node.next
+        }
+    }
+
+    *[Symbol.iterator]() {
+        let node = this.head
+        while (node) {
+            yield node
+            node = node.next
         }
     }
 }
