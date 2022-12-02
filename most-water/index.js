@@ -6,7 +6,24 @@
 //Return the maximum amount of water a container can store.
 
 function mostWater(nums) {
-    return mostWaterSolutionOne(nums)
+    return mostWaterOptimalSolution(nums)
+}
+
+function mostWaterOptimalSolution(nums) {
+    let a = 0
+    let b = nums.length - 1
+    let maxValue = 0
+
+    while (a < b) {
+        const newArea = getArea(nums[a], nums[b], a, b)
+        maxValue = Math.max(maxValue, newArea)
+        if (nums[a] < nums[b]) {
+            a++
+        } else {
+            b--
+        }
+    }
+    return maxValue
 }
 
 function mostWaterSolutionOne(nums) {
