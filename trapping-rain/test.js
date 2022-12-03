@@ -1,7 +1,7 @@
 const trappingWater = require('./index')
 
 test('TrappingWater is a function', () => {
-    expect(typeof twoSum).toEqual('function')
+    expect(typeof trappingWater).toEqual('function')
 })
 
 test('Given an array of integers nums [2, 7, 11, 15] should compute how much water it can trap after raining with total of 6.', () => {
