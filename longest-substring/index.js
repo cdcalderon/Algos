@@ -2,10 +2,32 @@
 // Given a string s, find the length of the longest substring without repeating characters.
 
 function longestSubstring(str) {
-    return longestSubstringBruteForce(str)
+    return longestSubstringOptimalSolution(str)
 }
 
-// function longestSubstring(str) {
+function longestSubstringOptimalSolution(str) {
+    if (str.length <= 1) return s.length
+
+    let longest = 0
+    let left = 0
+    let seenMap = {}
+
+    for (let right = 0; right < str.length; right++) {
+        let currentChar = str[right]
+        let previousSeen = seenMap[currentChar]
+
+        if (previousSeen >= left) {
+            left = previousSeen + 1
+        }
+
+        seenMap[currentChar] = right
+        longest = Math.max(longest, right - left + 1)
+    }
+
+    return longest
+}
+
+// function longestSubstringBruteForce2(str) {
 //     if (str.length <= 1) return s.length
 
 //     let longest = 0
