@@ -20,3 +20,14 @@ test('Write a function that takes in a non-empty array [1, 2, 3] of distinct int
 
     expect(threeNumberSum(arr, targetSum)).toEqual([[1, 2, 3]])
 })
+
+test('Write a function that takes in a non-empty array [12, 3, 1, 2, -6, 5, 0, -8, -1] of distinct integers and an integer representing a target sum 0.', () => {
+    const arr = [12, 3, 1, 2, -6, 5, 0, -8, -1]
+    const targetSum = 0
+
+    expect(threeNumberSum(arr, targetSum)).toEqual([
+        [-8, 3, 5],
+        [-6, 1, 5],
+        [-1, 0, 1],
+    ])
+})
