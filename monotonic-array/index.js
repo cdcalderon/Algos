@@ -5,7 +5,7 @@
 */
 
 function monotonicArray(array) {
-    return monotonicArraySolution(array)
+    return monotonicArraySolutionTwo(array)
 }
 
 function monotonicArraySolution(array) {
@@ -26,6 +26,18 @@ function monotonicArraySolution(array) {
     }
 
     return true
+}
+
+function monotonicArraySolutionTwo(array) {
+    let isNonDecreasing = true
+    let isNonIncreasing = true
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < array[i]) isNonDecreasing = false
+        if (array[i] > array[i - 1]) isNonIncreasing = false
+    }
+
+    return isNonDecreasing || isNonIncreasing
 }
 
 function breaksDirection(direction, previousInt, currentInt) {
