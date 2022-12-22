@@ -6,7 +6,16 @@
 */
 
 function firstDuplicateValue(array) {
-    return 2
+    let mapSeen = {}
+
+    for (const n of array) {
+        if (mapSeen[n]) {
+            return n
+        }
+        mapSeen[n] = true
+    }
+
+    return -1
 }
 
 module.exports = firstDuplicateValue
