@@ -37,4 +37,35 @@ function smallestDifference(arrayOne, arrayTwo) {
     return smallestPair
 }
 
+function smallestDifference(arrayOne, arrayTwo) {
+    let sortedArrayOne = arrayOne.sort((a, b) => a - b)
+    let sortedArrayTwo = arrayTwo.sort((a, b) => a - b)
+
+    let idxOne = 0
+    let idxTwo = 0
+    let smallest = Infinity
+    let currentSum = Infinity
+    let smallestPair = []
+
+    while (idxOne < arrayOne.length && idxTwo < arrayTwo.length) {
+        let firstNumber = arrayOne[idxOne]
+        let secondNumber = arrayTwo[idxTwo]
+        if (firstNumber < secondNumber) {
+            currentSum = secondNumber - firstNumber
+            idxOne++
+        } else if (secondNumber < firstNumber) {
+            currentSum = firstNumber - secondNumber
+            idxTwo++
+        } else {
+            return [firstNumber, secondNumber]
+        }
+
+        if (currentSum < smallest) {
+            smallest = currentSum
+            smallestPair = [firstNumber, secondNumber]
+        }
+    }
+    return smallestPair
+}
+
 module.exports = smallestDifference
