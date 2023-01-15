@@ -6,7 +6,7 @@
 */
 
 function caesarCipherEncryptor(text, key) {
-    const alphabet = 'abcdefghijklmnopkrstuvwxyz'.split('') // 26
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('') // 26
     const alphabetLength = alphabet.length
     const newIndex = key % alphabetLength
     const newTextArray = []
