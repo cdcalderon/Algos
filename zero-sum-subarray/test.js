@@ -15,3 +15,7 @@ test(`Given a list of integers nums [-1, -1, -1], should return true`, () => {
 test(`Given a list of integers nums [-1, 2, 3, 4, -5, -3, 1, 2], should return true`, () => {
     expect(zeroSumSubarray([-1, 2, 3, 4, -5, -3, 1, 2])).toEqual(true)
 })
+
+test(`Given a list of integers nums [-2, -3, -1, 2, 3, 4, -5, -3, 1, 2], should return true`, () => {
+    expect(zeroSumSubarray([-1, 2, 3, 4, -5, -3, 1, 2])).toEqual(true)
+})
